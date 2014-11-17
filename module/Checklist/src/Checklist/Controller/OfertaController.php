@@ -53,11 +53,16 @@ class OfertaController extends AbstractActionController {
             if ($request->isPost()) {
                 $form->setData($request->getPost());
                 if ($form->isValid()) {
-                    $this->getOfertaMapper()->saveOferta($task);
+                    $result = $this->getOfertaMapper()->saveOferta($task);
                     // Redirect to list of tasks
-                    return $this->redirect()->toRoute('oferta', array(
-                        'action' => 'getlist'
-                    ));
+                    \Zend\Debug\Debug::dump($result);
+                    if (!$result) {
+                        $this->flashMessenger()->addErrorMessage("Problem z dodaniem rekordu");
+                    } else {
+//                        return $this->redirect()->toRoute('oferta', array(
+//                            'action' => 'getlist'
+//                        ));
+                    }
                 }
             }
             return array (
@@ -78,20 +83,19 @@ class OfertaController extends AbstractActionController {
                 $dane = $parser->setUrl($url)->getResult();
                 $form->setData($dane);
                 if ($form->isValid()) {
-                    $this->getOfertaMapper()->saveOferta($task);
-
-                    return $this->redirect()->toRoute( 'oferta', array(
-                        'action' => 'getlist'
-                    ));
+                    $result = $this->getOfertaMapper()->saveOferta($task);
+                    if (!$result) {
+                        $this->flashMessenger()->addMessage("Problem z dodaniem rekordu");
+                    } else {
+                        return $this->redirect()->toRoute( 'oferta', array(
+                            'action' => 'getlist'
+                        ));
+                    }
                 } else {
                     echo "<pre>";
                     print_r($form->getMessages());
                     echo "</pre>";
                 }
-                // TODO: dodać obsługę komunikatów
-//                return $this->redirect()->toRoute('oferta', array(
-//                    'action' => 'getlist'
-//                ));
             }
 	}
         

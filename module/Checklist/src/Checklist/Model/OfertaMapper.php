@@ -57,7 +57,6 @@ class OfertaMapper {
 	public function saveOferta(OfertaEntity $oferta) {
             $hydrator = new ClassMethods();
             $data = $hydrator->extract($oferta);
-            \Zend\Debug\Debug::dump($data);
             if ($oferta->getId()) {
                 // update action
                 $action = $this->sql->update();
@@ -72,11 +71,10 @@ class OfertaMapper {
                 $action->values($data);
             }
             $statement = $this->sql->prepareStatementForSqlObject($action);
-            \Zend\Debug\Debug::dump($statement->getSql());
             try {
                 $result = $statement->execute();                
             } catch (\Exception $exc) {
-                \Zend\Debug\Debug::dump($exc->getTraceAsString());
+                return null;
             }
             if (!$oferta->getId()) {
                 $oferta->setId($result->getGeneratedValue());

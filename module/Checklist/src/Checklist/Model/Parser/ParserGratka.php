@@ -24,10 +24,6 @@ class ParserGratka extends ParserAbstract {
         $this->pobierzAdres();
         $this->pobierzCena();
         $this->pobierzCenaMetr2();
-        $this->data['czynsz'] = "";
-        $this->data['ogrzewanie'] = "";
-        $this->data['rodzaj_budynku'] = "";
-        $this->data['stan'] = '';
         $this->parsujLiczby();
     }
 

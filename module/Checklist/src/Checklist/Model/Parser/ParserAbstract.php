@@ -25,10 +25,10 @@ abstract class ParserAbstract {
                 throw new Exception("Brak obiektu DOM");
             }
             $this->setDataObject();
-            unset($this->data['cena_za_m2']);
-            unset($this->data['powiat']);
-            unset($this->data['gmina']);
-            unset($this->data['opis']);
+//            unset($this->data['cena_za_m2']);
+//            unset($this->data['powiat']);
+//            unset($this->data['gmina']);
+//            unset($this->data['opis']);
             return $this->getDataObject();
 	}
 

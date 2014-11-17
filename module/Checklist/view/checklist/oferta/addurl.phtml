@@ -1,9 +1,14 @@
-http://dom.gratka.pl/tresc/397-48290095-pomorskie-gdansk-siedlce-malczewskiego-jacka.html<br>
-http://ogloszenia.trojmiasto.pl/nieruchomosci-sprzedam/mieszkanie-gdansk-ogl8379345.html
 <?php
  $title = 'Dodaj z urla';
  $this->headTitle($title);
  ?>
+<?php if(count($this->flashMessenger()->getMessages())) : ?>
+<ul>
+    <?php foreach ($this->flashMessenger()->getMessages() as $msg) : ?>
+    <li><?php echo $msg; ?></li>
+    <?php endforeach; ?>
+</ul>
+<?php endif; ?>
  <h1><?php echo $this->escapeHtml($title); ?></h1>
 
  <form id="addfromurl" method="post" action="<?php echo $this->url('oferta', array('action'=>'addurl')); ?>" >

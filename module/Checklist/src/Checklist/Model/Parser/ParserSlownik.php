@@ -45,8 +45,9 @@ class ParserSlownik {
     const LABEL_OPIS = "opis";
     const LABEL_INFO_DODATKOWE = "informacjedodatkowe";
     const LABEL_FORMA_WLASN = "forma_wlasnosci";
-    const LABEL_TYP_BUDYNKU = "typ_budynku";
+    const LABEL_TYP_BUDYNKU = "rodzaj_budynku";
     const LABEL_MATERIAL = "material";
+    const LABEL_OGRZEWANIE = "ogrzewanie";
     
     public static function pobierz_dostepne_parsery() {
         return array(
@@ -57,16 +58,16 @@ class ParserSlownik {
 
     public static $labele = array(
         'rodzaj' => self::LABEL_RODZAJ,
-        'Typ budynku' => self::LABEL_TYP_BUDYNKU,
-        'Materiał' => self::LABEL_MATERIAL,
+        'typbudynku' => self::LABEL_TYP_BUDYNKU,
+        'material' => self::LABEL_MATERIAL,
         'cena' => self::LABEL_CENA,
         'cenazam2' => self::LABEL_CENA_ZA_M2,
         'powierzchnia' => self::LABEL_POWIERZCHNIA,
         'miasto' => self::LABEL_MIEJSCOWOSC,
         'miejscowosc' => self::LABEL_MIEJSCOWOSC,
-        'piętro' => self::LABEL_PIETRO,
-        'Liczba kondygnacji' => self::LABEL_LICZBA_PIETER,
-        'Liczbapięter' => self::LABEL_LICZBA_PIETER,
+        'pietro' => self::LABEL_PIETRO,
+        'liczbakondygnacji' => self::LABEL_LICZBA_PIETER,
+        'liczbapięter' => self::LABEL_LICZBA_PIETER,
         'pietro' => self::LABEL_PIETRO,
         'dzielnica' => self::LABEL_DZIELNICA,
         'ulica' => self::LABEL_ULICA,
@@ -78,7 +79,8 @@ class ParserSlownik {
         'rodzaj' => self::LABEL_RODZAJ,
         'opis' => self::LABEL_OPIS,
         'informacjedodatkowe' => self::LABEL_OPIS,
-        'forma_własności' => self::LABEL_FORMA_WLASN,
+        'typogrzewania' => self::LABEL_OGRZEWANIE,
+        'formawlasnosci' => self::LABEL_FORMA_WLASN,
     );
 
     /**

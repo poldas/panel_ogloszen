@@ -20,7 +20,6 @@ class ParserTrojmiasto extends ParserAbstract {
         $this->data['id'] = 0;
         $this->pobierzDaneTabelkowe();
         $this->pobierzOpis();
-        $this->data['ogrzewanie'] = "";
         $this->data['rodzaj_budynku'] = "";
         $this->data['stan'] = '';
         $this->data['powiat'] = '';
@@ -38,7 +37,7 @@ class ParserTrojmiasto extends ParserAbstract {
     
     protected function parsujAdres() {
         $this->data['adres'] = $this->data['miejscowosc'] 
-            + ', ' + $this->data['dzielnica'] + ', ' + $this->data['ulica'] ;
+            .', '.$this->data['dzielnica'].', ul. '.$this->data['ulica'] ;
     }
     
     
