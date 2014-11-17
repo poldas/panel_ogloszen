@@ -74,40 +74,49 @@ return array(
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ),
+        'display_exceptions' => true,
+        'display_not_found_reason' => true,
     ),
 	'service_manager' => array(
          'factories' => array(
          	'Navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
+             'Logger' => function($sm){
+        $logger = new \Zend\Log\Logger;
+        $writer = new \Zend\Log\Writer\Stream('./data/log/'.date('Y-m-d').'-error.log');
+        $logger->addWriter($writer);  
+
+        return $logger;
+    },
          		/**
          		 * This default Db factory is required so that ZDT
          		 * doesn't throw exceptions, even though we don't use it
          		 */
-         		'Zend\Db\Adapter\Adapter' => function ($sm) use ($dbParams) {
-                $adapter = new BjyProfiler\Db\Adapter\ProfilingAdapter(array(
-                    'driver'    => 'pdo',
-                    'dsn'       => 'mysql:dbname='.$dbParams['database'].';host='.$dbParams['hostname'],
-                    'database'  => $dbParams['database'],
-                    'username'  => $dbParams['username'],
-                    'password'  => $dbParams['password'],
-                    'hostname'  => $dbParams['hostname'],
-                ));
+                'Zend\Db\Adapter\Adapter' => function ($sm) use ($dbParams) {
+                    $adapter = new BjyProfiler\Db\Adapter\ProfilingAdapter(array(
+                        'driver'    => 'pdo',
+                        'dsn'       => 'mysql:dbname='.$dbParams['database'].';host='.$dbParams['hostname'],
+                        'database'  => $dbParams['database'],
+                        'username'  => $dbParams['username'],
+                        'password'  => $dbParams['password'],
+                        'hostname'  => $dbParams['hostname'],
+                    ));
 
-                if (php_sapi_name() == 'cli') {
-                    $logger = new Zend\Log\Logger();
-                    // write queries profiling info to stdout in CLI mode
-                    $writer = new Zend\Log\Writer\Stream('php://output');
-                    $logger->addWriter($writer, Zend\Log\Logger::DEBUG);
-                    $adapter->setProfiler(new BjyProfiler\Db\Profiler\LoggingProfiler($logger));
-                } else {
-                    $adapter->setProfiler(new BjyProfiler\Db\Profiler\Profiler());
-                }
-                if (isset($dbParams['options']) && is_array($dbParams['options'])) {
-                    $options = $dbParams['options'];
-                } else {
-                    $options = array();
-                }
-                $adapter->injectProfilingStatementPrototype($options);
-                return $adapter;
+                    if (php_sapi_name() == 'cli') {
+                        $logger = new Zend\Log\Logger();
+                        // write queries profiling info to stdout in CLI mode
+                        $writer = new Zend\Log\Writer\Stream('php://output');
+                        $logger->addWriter($writer, Zend\Log\Logger::DEBUG);
+                        $adapter->setProfiler(new BjyProfiler\Db\Profiler\LoggingProfiler($logger));
+                    } else {
+                        $adapter->setProfiler(new BjyProfiler\Db\Profiler\Profiler());
+                    }
+                    if (isset($dbParams['options']) && is_array($dbParams['options'])) {
+                        $options = $dbParams['options'];
+                    } else {
+                        $options = array();
+                    }
+                    $adapter->injectProfilingStatementPrototype($options);
+                    return $adapter;
             },
          ),
      ),

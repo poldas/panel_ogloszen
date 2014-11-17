@@ -14,36 +14,49 @@ require.config({
 
 require(['jquery', 'modules/Mapster','jqueryui.mapster', 'bootstrap'], function($, mapster, mplugin) {
     $('h1').text('Require It\'s working!');
-    var mapCanvas = $("#mapa-oferty").get(0);
-    var map = mapster.create(mapCanvas);
-    map._on({
-		elem: map.gMap,
-		event: 'rightclick',
-		callback: function() {
-			alert('prawy klik');
-		}
-	});
-    var marker = map.addMarker({
-		lat: 37.791350,
-		lng: -122.435883,
-		draggable: true,
-		icon: "http://mapicons.nicolasmollet.com/wp-content/uploads/mapicons/shape-default/color-ff8a22/shapecolor-color/shadow-1/border-dark/symbolstyle-white/symbolshadowstyle-dark/gradient-no/soccer.png",
-		id: 1,
-		content: "<div class='color'>Im open</div>",
-		events: [{
-			name: 'click',
-			callback: function() {
-				alert('jestem klikniety');
-			}
-		},
-		{
-			name: 'dragend',
-			callback: function() {
-				alert('jestem dragend');
-			}
-		}]
-	});
-        map._geocode('gdańsk, kościuszki');
+    $mapa = $("#mapa-oferty");
+    var mapCanvas = $mapa? $mapa.get(0):null;
+    
+    $('[data-toggle="tooltip"]').tooltip({
+        placement : 'top'
+    });
+    $(function(){
+        $(".pokazOpis").click(function(e) {
+            e.preventDefault();
+            var siblings = $(this).siblings(), content = $(siblings[0]);
+            $('#myModal .modal-body').html(content.html());
+            $('#myModal').modal('show');
+        });
+    });
+//    var map = mapster.create(mapCanvas);
+//    map._on({
+//		elem: map.gMap,
+//		event: 'rightclick',
+//		callback: function() {
+//			alert('prawy klik');
+//		}
+//	});
+//    var marker = map.addMarker({
+//		lat: 37.791350,
+//		lng: -122.435883,
+//		draggable: true,
+//		icon: "http://mapicons.nicolasmollet.com/wp-content/uploads/mapicons/shape-default/color-ff8a22/shapecolor-color/shadow-1/border-dark/symbolstyle-white/symbolshadowstyle-dark/gradient-no/soccer.png",
+//		id: 1,
+//		content: "<div class='color'>Im open</div>",
+//		events: [{
+//			name: 'click',
+//			callback: function() {
+//				alert('jestem klikniety');
+//			}
+//		},
+//		{
+//			name: 'dragend',
+//			callback: function() {
+//				alert('jestem dragend');
+//			}
+//		}]
+//	});
+//        map._geocode('gdańsk, kościuszki');
 //    var marker2 = map.addMarker({
 //		lat: 37.771350 + Math.random(),
 //		lng: -122.565883 + Math.random(),
