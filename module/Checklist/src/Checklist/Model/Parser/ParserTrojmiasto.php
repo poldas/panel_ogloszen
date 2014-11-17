@@ -5,11 +5,6 @@ use Checklist\Model\Parser\ParserAbstract;
 class ParserTrojmiasto extends ParserAbstract {
     const PARSER_NAME = "trojmiasto";
 
-    const SUBSTR_CZYNSZ = 7;
-    const SUBSTR_DATA_DODANIA = 7;
-    const SUBSTR_MIESZKANIE = 11;
-    const SUBSTR_ROK_BUDOWY = 13;
-
     /**
      * (non-PHPdoc)
      *

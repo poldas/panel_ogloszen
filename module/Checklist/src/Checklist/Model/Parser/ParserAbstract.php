@@ -25,10 +25,6 @@ abstract class ParserAbstract {
                 throw new Exception("Brak obiektu DOM");
             }
             $this->setDataObject();
-//            unset($this->data['cena_za_m2']);
-//            unset($this->data['powiat']);
-//            unset($this->data['gmina']);
-//            unset($this->data['opis']);
             return $this->getDataObject();
 	}
 
@@ -64,8 +60,8 @@ abstract class ParserAbstract {
         protected function parsujLiczby() {
             $tmp = $this->data['cena'];
             $this->data['cena'] = floatval(str_replace(" ", "", $tmp));
-            $tmp = $this->data['cena_za_m2'];
-            $this->data['cena_za_m2'] = floatval(str_replace(" ", "", $tmp));
+            $tmp = $this->data['cenam2'];
+            $this->data['cenam2'] = floatval(str_replace(" ", "", $tmp));
             $tmp = $this->data['powierzchnia'];
             $this->data['powierzchnia'] = floatval(str_replace(" ", "", $tmp));
         }

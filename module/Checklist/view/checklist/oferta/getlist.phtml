@@ -8,6 +8,7 @@
  <tr>
      <th>ID</th>
      <th>Cena</th>
+     <th>Cena/m2</th>
      <th>Liczba Pokoi</th>
      <th>Pow</th>
      <th>Dzielnica</th>
@@ -20,6 +21,7 @@
      <th>Piętro</th>
      <th>Rodzaj Budynku</th>
      <th>Ogrzewanie</th>
+     <th>Opis</th>
      <th>Akcja</th>
  </tr>
  </thead>
@@ -28,6 +30,7 @@
  <tr>
      <td><?php echo ++$id; ?></td>
      <td><?php echo $task->getCena(); ?></td>
+     <td><?php echo $task->getCenaM2(); ?></td>
      <td><?php echo $task->getLiczbaPokoi(); ?></td>
      <td><?php echo $task->getPowierzchnia(); ?></td>
      <td><?php echo $task->getDzielnica(); ?></td>
@@ -40,6 +43,7 @@
      <td><?php echo $task->getPietro(); ?></td>
      <td><?php echo $task->getRodzajBudynku(); ?></td>
      <td><?php echo $task->getOgrzewanie(); ?></td>
+     <td><?php // echo $task->getOpis(); ?> pokaż opis</td>
      <td>
          <a href="<?php echo $this->url('oferta',
              array('action'=>'delete', 'id' => $task->getId()));?>">Usuń</a>

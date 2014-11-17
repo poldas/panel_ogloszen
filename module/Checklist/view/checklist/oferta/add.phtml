@@ -15,6 +15,7 @@
 	 echo $this->formHidden($form->get('id'));
 	 echo $this->formRow($form->get('powierzchnia'));
 	 echo $this->formRow($form->get('cena'));
+         echo $this->formRow($form->get('cenam2'));
 	 echo $this->formRow($form->get('czynsz'));
 	 echo "</div>";
 	 echo "<div class='col-md-3'>";
@@ -27,11 +28,12 @@
 	 echo $this->formRow($form->get('liczba_pokoi'));
 	 echo $this->formRow($form->get('rok_budowy'));
 	 echo $this->formRow($form->get('pietro'));
+         echo $this->formRow($form->get('ogrzewanie'));
 	 echo "</div>";
 	 echo "<div class='col-md-3'>";
 	 echo $this->formRow($form->get('stan'));
 	 echo $this->formRow($form->get('rodzaj_budynku'));
-	 echo $this->formRow($form->get('ogrzewanie'));
+	 echo $this->formRow($form->get('opis'));
 	 echo "</div>";
  echo "</div>";
  ?>

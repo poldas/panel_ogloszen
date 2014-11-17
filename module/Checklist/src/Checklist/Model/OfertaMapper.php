@@ -4,6 +4,7 @@ CREATE TABLE `oferty_nieruchomosci` (
 `id` int(11) NOT NULL AUTO_INCREMENT,
 `powierzchnia` varchar(20) COLLATE utf8_polish_ci DEFAULT 'brak',
 `cena` varchar(20) COLLATE utf8_polish_ci DEFAULT 'brak',
+`cenam2` varchar(20) COLLATE utf8_polish_ci DEFAULT 'brak',
 `czynsz` varchar(20) COLLATE utf8_polish_ci DEFAULT 'brak',
 `liczba_pokoi` int(2) DEFAULT 0,
 `adres` varchar(70) COLLATE utf8_polish_ci DEFAULT '',
@@ -15,6 +16,7 @@ CREATE TABLE `oferty_nieruchomosci` (
 `pietro` varchar(10) COLLATE utf8_polish_ci DEFAULT '0',
 `ogrzewanie` varchar(15) COLLATE utf8_polish_ci DEFAULT 'brak',
 `rodzaj_budynku` varchar(20) COLLATE utf8_polish_ci DEFAULT 'brak',
+`opis` varchar(5000) COLLATE utf8_polish_ci DEFAULT '',
 PRIMARY KEY (`id`),
 UNIQUE KEY `unik` (`powierzchnia`, `cena`, `adres`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;

@@ -31,7 +31,7 @@ class ParserSlownik {
     const GMAPS_ICO_DEF = "";
     
     const LABEL_CENA = 'cena';
-    const LABEL_CENA_ZA_M2 = 'cena_za_m2';
+    const LABEL_CENA_ZA_M2 = 'cenam2';
     const LABEL_RODZAJ = 'rodzaj';
     const LABEL_POWIERZCHNIA = 'powierzchnia';
     const LABEL_LICZBA_POKOI = 'liczba_pokoi';
@@ -48,6 +48,7 @@ class ParserSlownik {
     const LABEL_TYP_BUDYNKU = "rodzaj_budynku";
     const LABEL_MATERIAL = "material";
     const LABEL_OGRZEWANIE = "ogrzewanie";
+    const LABEL_STAN_MIESZKANIA = "stan";
     
     public static function pobierz_dostepne_parsery() {
         return array(
@@ -62,12 +63,13 @@ class ParserSlownik {
         'material' => self::LABEL_MATERIAL,
         'cena' => self::LABEL_CENA,
         'cenazam2' => self::LABEL_CENA_ZA_M2,
+        'cenam2' => self::LABEL_CENA_ZA_M2,
         'powierzchnia' => self::LABEL_POWIERZCHNIA,
         'miasto' => self::LABEL_MIEJSCOWOSC,
         'miejscowosc' => self::LABEL_MIEJSCOWOSC,
         'pietro' => self::LABEL_PIETRO,
         'liczbakondygnacji' => self::LABEL_LICZBA_PIETER,
-        'liczbapięter' => self::LABEL_LICZBA_PIETER,
+        'liczbapieter' => self::LABEL_LICZBA_PIETER,
         'pietro' => self::LABEL_PIETRO,
         'dzielnica' => self::LABEL_DZIELNICA,
         'ulica' => self::LABEL_ULICA,
@@ -81,6 +83,7 @@ class ParserSlownik {
         'informacjedodatkowe' => self::LABEL_OPIS,
         'typogrzewania' => self::LABEL_OGRZEWANIE,
         'formawlasnosci' => self::LABEL_FORMA_WLASN,
+        'stanmieszkania' => self::LABEL_STAN_MIESZKANIA,
     );
 
     /**

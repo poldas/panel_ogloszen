@@ -65,7 +65,8 @@ class Parser {
         if(!$this->client) {
             $this->setClient();
         }
-        $this->domobject = new Query($this->client->getResponse()->getBody(), 'UTF-8');
+        $body = $this->client->getResponse()->getBody();
+        $this->domobject = new Query(html_entity_decode($body));
     }
     
 
@@ -76,7 +77,7 @@ class Parser {
         $this->client = new Client( $this->url );
         $this->client->setAdapter('Zend\Http\Client\Adapter\Curl');
         $this->client->setMethod('GET');
-        $this->client->setEncType(Client::ENC_URLENCODED);
+//        $this->client->setEncType(Client::ENC_URLENCODED);
         $this->client->send();
     }
     

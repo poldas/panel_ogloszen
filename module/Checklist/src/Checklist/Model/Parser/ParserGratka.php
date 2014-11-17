@@ -23,7 +23,7 @@ class ParserGratka extends ParserAbstract {
         $this->pobierzOpis();
         $this->pobierzAdres();
         $this->pobierzCena();
-        $this->pobierzCenaMetr2();
+        $this->pobierzCenaMetr2Czynsz();
         $this->parsujLiczby();
     }
 
@@ -31,14 +31,24 @@ class ParserGratka extends ParserAbstract {
         $nodes = $this->getDomObject()->execute(
             "#karta-ogloszenia div.cenaGlowna p b"
         );
-        $this->data['cena'] = $nodes[0]->nodeValue;
+        
+        $wartosc = $nodes[0]->nodeValue;
+        $wartosc = htmlentities($wartosc, ENT_COMPAT, 'UTF-8');
+        $wartosc = str_replace('&nbsp;', '', $wartosc);
+        $this->data['cena'] = $wartosc;
     }
     
-    protected function pobierzCenaMetr2() {
+    protected function pobierzCenaMetr2Czynsz() {
         $nodes = $this->getDomObject()->execute(
             "#karta-ogloszenia ul.cenaOpis li b"
         );
-        $this->data['cena_za_m2'] = $nodes[0]->nodeValue;
+
+        if (isset($nodes[1])) {
+            $this->data['cenam2'] = $nodes[1]->nodeValue;
+            $this->data['czynsz'] = $nodes[0]->nodeValue;
+        } else {
+            $this->data['cenam2'] = $nodes[0]->nodeValue;
+        }
     }
     
     protected function pobierzAdres() {
@@ -97,7 +107,6 @@ class ParserGratka extends ParserAbstract {
         $wynik = array();
         $bledy = array();
         foreach ($nodes as $key => $node) {
-            mb_regex_encoding('UTF-8');
             $tmp = mb_split('\n', trim($node->nodeValue));
             try {
                 $label = ParserSlownik::getLabelName($tmp[0]);

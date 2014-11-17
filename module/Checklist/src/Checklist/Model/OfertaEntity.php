@@ -5,6 +5,7 @@ class OfertaEntity {
 	protected $id;
 	protected $powierzchnia;
 	protected $cena;
+        protected $cenam2;
 	protected $czynsz;
 	protected $liczbaPokoi;
 	protected $adres;
@@ -14,6 +15,7 @@ class OfertaEntity {
 	protected $rokBudowy;
 	protected $stan;
 	protected $pietro;
+        protected $opis;
 	protected $rodzajBudynku;
 	protected $ogrzewanie;
 
@@ -41,6 +43,14 @@ class OfertaEntity {
 		$this->cena = $Value;
 	}
 
+        public function getCenam2() {
+		return $this->cenam2;
+	}
+
+	public function setCenam2($Value) {
+		$this->cenam2 = $Value;
+	}
+        
 	public function getCzynsz() {
 		return $this->czynsz;
 	}
@@ -118,7 +128,14 @@ class OfertaEntity {
 	public function setRodzajBudynku($Value) {
 		$this->rodzajBudynku = $Value;
 	}
+	public function getOpis() {
+		return $this->opis;
+	}
 
+	public function setOpis($Value) {
+		$this->opis = $Value;
+	}
+        
 	public function getOgrzewanie() {
 		return $this->ogrzewanie;
 	}

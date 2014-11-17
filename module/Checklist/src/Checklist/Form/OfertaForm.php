@@ -31,7 +31,18 @@ class OfertaForm extends Form {
                 'class' => 'form-control',
             )
         ));
-
+        $this->add(array(
+            'name' => 'cenam2',
+            'type' => 'text',
+            'options' => array(
+                'label' => 'Cena za m2',
+            ),
+            'attributes' => array(
+                'id' => 'cenam2',
+                'maxlength' => 10,
+                'class' => 'form-control',
+            )
+        ));
         $this->add(array(
             'name' => 'powierzchnia',
             'type' => 'text',
@@ -72,6 +83,19 @@ class OfertaForm extends Form {
             )
         ));
 
+        $this->add(array(
+            'name' => 'opis',
+            'type' => 'textarea',
+            'options' => array(
+                'label' => 'Opis',
+            ),
+            'attributes' => array(
+                'id' => 'opis',
+                'class' => 'form-control',
+                'rows' => 15,
+            )
+        ));
+                
         $this->add(array(
             'name' => 'adres',
             'type' => 'text',
