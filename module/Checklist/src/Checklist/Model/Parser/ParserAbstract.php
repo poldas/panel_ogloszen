@@ -25,10 +25,12 @@ abstract class ParserAbstract {
                 throw new Exception("Brak obiektu DOM");
             }
             $this->setDataObject();
+            $this->data['url'] = $this->url;
             return $this->getDataObject();
 	}
 
         public function setUrl($url) {
+            $this->data['url'] = $this->url;
             $this->url = $url;
         }
         

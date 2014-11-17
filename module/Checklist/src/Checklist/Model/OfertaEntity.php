@@ -8,9 +8,10 @@ class OfertaEntity {
         protected $cenam2;
 	protected $czynsz;
 	protected $liczbaPokoi;
+        protected $liczbaPieter;
 	protected $adres;
 	protected $miejscowosc;
-	protected $dzielnica;
+	protected $formaWlasnosci;
 	protected $ulica;
 	protected $rokBudowy;
 	protected $stan;
@@ -18,6 +19,8 @@ class OfertaEntity {
         protected $opis;
 	protected $rodzajBudynku;
 	protected $ogrzewanie;
+        protected $material;
+        protected $url;
 
 	public function getId() {
 		return $this->id;
@@ -67,6 +70,13 @@ class OfertaEntity {
 		$this->liczbaPokoi = $Value;
 	}
 
+	public function getLiczbaPieter() {
+		return $this->liczbaPieter;
+	}
+
+	public function setLiczbaPieter($Value) {
+		$this->liczbaPieter = $Value;
+	}
 	public function getAdres() {
 		return $this->adres;
 	}
@@ -83,12 +93,12 @@ class OfertaEntity {
 		$this->miejscowosc = $Value;
 	}
 
-	public function getDzielnica() {
-		return $this->dzielnica;
+	public function getFormaWlasnosci() {
+		return $this->formaWlasnosci;
 	}
 
-	public function setDzielnica($Value) {
-		$this->dzielnica = $Value;
+	public function setFormaWlasnosci($Value) {
+		$this->formaWlasnosci = $Value;
 	}
 
 	public function getUlica() {
@@ -142,5 +152,21 @@ class OfertaEntity {
 
 	public function setOgrzewanie($Value) {
 		$this->ogrzewanie = $Value;
+	}
+        
+	public function getMaterial() {
+		return $this->material;
+	}
+
+	public function setMaterial($Value) {
+		$this->material = $Value;
+	}
+        
+        public function getUrl() {
+		return $this->url;
+	}
+
+	public function setUrl($Value) {
+		$this->url = $Value;
 	}
 }

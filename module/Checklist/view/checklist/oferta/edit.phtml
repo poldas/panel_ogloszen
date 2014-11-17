@@ -27,7 +27,6 @@
 				 echo '<div class="form-group">';
 					 echo $this->formRow($form->get('adres'));
 					 echo $this->formRow($form->get('miejscowosc'));
-					 echo $this->formRow($form->get('dzielnica'));
 					 echo $this->formRow($form->get('ulica'));
 				 echo "</div>";
 			 echo "</div>";
@@ -35,7 +34,9 @@
 		 echo "<div class='row'>";
 			 echo "<div class='col-md-6'>";
 				 echo '<div class="form-group">';
+                                         echo $this->formRow($form->get('forma_wlasnosci'));
 					 echo $this->formRow($form->get('pietro'));
+                                         echo $this->formRow($form->get('liczba_pieter'));
 					 echo $this->formRow($form->get('liczba_pokoi'));
 					 echo $this->formRow($form->get('rok_budowy'));
 				 echo "</div>";
@@ -45,11 +46,8 @@
 					 echo $this->formRow($form->get('stan'));
 					 echo $this->formRow($form->get('rodzaj_budynku'));
 					 echo $this->formRow($form->get('ogrzewanie'));
-				 echo "</div>";
-			 echo "</div>";
-                          echo "<div class='col-md-12'>";
-				 echo '<div class="form-group">';
-					 echo $this->formRow($form->get('opis'));
+                                         echo $this->formRow($form->get('material'));
+                                         echo $this->formRow($form->get('url'));
 				 echo "</div>";
 			 echo "</div>";
 		 echo "</div>";
@@ -62,9 +60,11 @@
                     echo "</div>";
             echo "</div>";
 	 echo "</div>";
-	 echo "<div class='col-md-6'>";
-		echo "<div id='mapa-oferty'></div>";
-	 echo "</div>";
+          echo "<div class='col-md-6'>";
+                echo '<div class="form-group">';
+                        echo $this->formRow($form->get('opis'));
+                echo "</div>";
+          echo "</div>";
  echo "</div>";
  ?>
  <script type="text/javascript">

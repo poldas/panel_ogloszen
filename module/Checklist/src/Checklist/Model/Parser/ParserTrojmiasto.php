@@ -19,6 +19,7 @@ class ParserTrojmiasto extends ParserAbstract {
         $this->data['stan'] = '';
         $this->data['powiat'] = '';
         $this->data['gmina'] = '';
+        
         $this->parsujLiczby();
         $this->parsujAdres();
     }

@@ -215,6 +215,58 @@ class OfertaForm extends Form {
         ));
 
         $this->add(array(
+            'name' => 'url',
+            'type' => 'text',
+            'options' => array(
+                'label' => 'Url',
+            ),
+            'attributes' => array(
+                'id' => 'url-ogloszenia',
+                'maxlength' => 100,
+                'class' => 'form-control',
+            )
+        ));
+        
+        $this->add(array(
+            'name' => 'material',
+            'type' => 'text',
+            'options' => array(
+                'label' => 'Materiał',
+            ),
+            'attributes' => array(
+                'id' => 'material',
+                'maxlength' => 30,
+                'class' => 'form-control',
+            )
+        ));
+ 
+        $this->add(array(
+            'name' => 'forma_wlasnosci',
+            'type' => 'text',
+            'options' => array(
+                'label' => 'Forma Wł.',
+            ),
+            'attributes' => array(
+                'id' => 'forma-wlasnosci',
+                'maxlength' => 40,
+                'class' => 'form-control',
+            )
+        ));
+        
+        $this->add(array(
+            'name' => 'liczba_pieter',
+            'type' => 'text',
+            'options' => array(
+                'label' => 'Liczba pięter',
+            ),
+            'attributes' => array(
+                'id' => 'liczba-pieter',
+                'maxlength' => 3,
+                'class' => 'form-control',
+            )
+        ));
+        
+        $this->add(array(
             'name' => 'submit',
             'attributes' => array(
                 'type'  => 'submit',

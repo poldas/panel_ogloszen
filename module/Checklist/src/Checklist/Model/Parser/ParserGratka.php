@@ -24,9 +24,16 @@ class ParserGratka extends ParserAbstract {
         $this->pobierzAdres();
         $this->pobierzCena();
         $this->pobierzCenaMetr2Czynsz();
+        
         $this->parsujLiczby();
+        $this->parsujAdres();
     }
 
+    protected function parsujAdres() {
+        $this->data['adres'] = $this->data['miejscowosc'] 
+            .', '.$this->data['dzielnica'].', ul. '.$this->data['ulica'] ;
+    }
+    
     protected function pobierzCena() {
         $nodes = $this->getDomObject()->execute(
             "#karta-ogloszenia div.cenaGlowna p b"
@@ -57,12 +64,14 @@ class ParserGratka extends ParserAbstract {
         );
         $wynik = $nodes[0]->nodeValue;
         $tmp = explode(',', $wynik);
-        $this->data['adres'] = $wynik;
-        $this->data['miejscowosc'] = "";
-        $this->data['powiat'] = $tmp[1];
-        $this->data['ulica'] = $tmp[0];
-        $this->data['gmina'] = $tmp[2];
-        $this->data['dzielnica'] = "";
+        $gmina = array_pop($tmp);
+        $powiat = array_pop($tmp);
+        $ulica = array_pop($tmp);
+        $dzielnica = array_pop($tmp);
+
+        $this->data['miejscowosc'] = str_replace('Gmina', '', $gmina);
+        $this->data['ulica'] = $ulica;
+        $this->data['dzielnica'] = str_replace('mieszkanie na sprzedaż', '', $dzielnica);
     }
 
      protected function pobierzOpis() {
@@ -83,6 +92,8 @@ class ParserGratka extends ParserAbstract {
             $tmp = mb_split('\n', trim($node->nodeValue));
             try {
                 $label = ParserSlownik::getLabelName($tmp[0]);
+                \Zend\Debug\Debug::dump($tmp[0], 'tmp');
+                \Zend\Debug\Debug::dump($label, 'label');
                 if (empty($label)) {
                     continue;
                 }
@@ -110,6 +121,8 @@ class ParserGratka extends ParserAbstract {
             $tmp = mb_split('\n', trim($node->nodeValue));
             try {
                 $label = ParserSlownik::getLabelName($tmp[0]);
+                                               \Zend\Debug\Debug::dump($tmp[0], 'tmp');
+                \Zend\Debug\Debug::dump($label, 'label');
                 if (empty($label)) {
                     continue;
                 }

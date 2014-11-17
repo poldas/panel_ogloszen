@@ -89,7 +89,7 @@ class OfertaController extends AbstractActionController {
                     } else {
                         $this->flashMessenger()->addMessage("Dodano rekord o id: ".$task->getId());
                         return $this->redirect()->toRoute( 'oferta', array(
-                            'action' => 'getlist'
+                            'action' => 'getlist',
                         ));
                     }
                 } else {

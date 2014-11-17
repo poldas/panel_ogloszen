@@ -58,7 +58,6 @@ class ParserSlownik {
     }
 
     public static $labele = array(
-        'rodzaj' => self::LABEL_RODZAJ,
         'typbudynku' => self::LABEL_TYP_BUDYNKU,
         'material' => self::LABEL_MATERIAL,
         'cena' => self::LABEL_CENA,
@@ -71,7 +70,6 @@ class ParserSlownik {
         'liczbakondygnacji' => self::LABEL_LICZBA_PIETER,
         'liczbapieter' => self::LABEL_LICZBA_PIETER,
         'pietro' => self::LABEL_PIETRO,
-        'dzielnica' => self::LABEL_DZIELNICA,
         'ulica' => self::LABEL_ULICA,
         'ulicainr' => self::LABEL_ULICA,
         'liczbapokoi' => self::LABEL_LICZBA_POKOI,
@@ -84,6 +82,7 @@ class ParserSlownik {
         'typogrzewania' => self::LABEL_OGRZEWANIE,
         'formawlasnosci' => self::LABEL_FORMA_WLASN,
         'stanmieszkania' => self::LABEL_STAN_MIESZKANIA,
+        'material' => self::LABEL_MATERIAL,
     );
 
     /**

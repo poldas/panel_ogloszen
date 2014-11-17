@@ -7,18 +7,21 @@ CREATE TABLE `oferty_nieruchomosci` (
 `cenam2` varchar(20) COLLATE utf8_polish_ci DEFAULT 'brak',
 `czynsz` varchar(20) COLLATE utf8_polish_ci DEFAULT 'brak',
 `liczba_pokoi` int(2) DEFAULT 0,
+`liczba_pieter` int(2) DEFAULT 0,
 `adres` varchar(70) COLLATE utf8_polish_ci DEFAULT '',
 `miejscowosc` varchar(30) COLLATE utf8_polish_ci DEFAULT '',
-`ulica` varchar(30) COLLATE utf8_polish_ci DEFAULT '',
-`dzielnica` varchar(30) COLLATE utf8_polish_ci DEFAULT '',
+`ulica` varchar(100) COLLATE utf8_polish_ci DEFAULT '',
+`forma_wlasnosci` varchar(30) COLLATE utf8_polish_ci DEFAULT '',
 `rok_budowy` int(4) DEFAULT '0',
 `stan` varchar(20) COLLATE utf8_polish_ci DEFAULT 'brak',
 `pietro` varchar(10) COLLATE utf8_polish_ci DEFAULT '0',
 `ogrzewanie` varchar(15) COLLATE utf8_polish_ci DEFAULT 'brak',
 `rodzaj_budynku` varchar(20) COLLATE utf8_polish_ci DEFAULT 'brak',
-`opis` varchar(5000) COLLATE utf8_polish_ci DEFAULT '',
+`material` varchar(10) COLLATE utf8_polish_ci DEFAULT 'brak',
+`opis` varchar(4000) COLLATE utf8_polish_ci DEFAULT '',
+`url` varchar(100) COLLATE utf8_polish_ci DEFAULT '',
 PRIMARY KEY (`id`),
-UNIQUE KEY `unik` (`powierzchnia`, `cena`, `adres`)
+UNIQUE KEY `unik` (`adres`, `url`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 */
 namespace Checklist\Model;
