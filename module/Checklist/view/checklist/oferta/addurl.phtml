@@ -2,12 +2,15 @@
  $title = 'Dodaj z urla';
  $this->headTitle($title);
  ?>
-<?php if(count($this->flashMessenger()->getMessages())) : ?>
+<?php if(count($flashMessages)) : ?>
+<div class="alert alert-danger fade in">
+    <a href="#" class="close" data-dismiss="alert">&times;</a>
 <ul>
-    <?php foreach ($this->flashMessenger()->getMessages() as $msg) : ?>
-    <li><?php echo $msg; ?></li>
+    <?php foreach ($flashMessages as $msg) : ?>
+   <li> <strong>Błąd!</strong> <?php echo $msg; ?></li>
     <?php endforeach; ?>
 </ul>
+</div>
 <?php endif; ?>
  <h1><?php echo $this->escapeHtml($title); ?></h1>
 

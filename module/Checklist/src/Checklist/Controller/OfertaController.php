@@ -87,6 +87,7 @@ class OfertaController extends AbstractActionController {
                     if (!$result) {
                         $this->flashMessenger()->addMessage("Problem z dodaniem rekordu");
                     } else {
+                        $this->flashMessenger()->addMessage("Dodano rekord o id: ".$task->getId());
                         return $this->redirect()->toRoute( 'oferta', array(
                             'action' => 'getlist'
                         ));
@@ -97,13 +98,20 @@ class OfertaController extends AbstractActionController {
                     echo "</pre>";
                 }
             }
+            
+            $flashMessages = $this->flashMessenger()->getCurrentMessages();
+            return array(
+                'flashMessages' => $flashMessages,
+            );
 	}
         
 	public function getListAction() {
             $this->layout('layout/oferta');
             $mapper = $this->getOfertaMapper();
+            $flashMessages = $this->flashMessenger()->getCurrentMessages();
             return new ViewModel(array(
-                'tasks' => $mapper->fetchAll()
+                'tasks' => $mapper->fetchAll(),
+                'flashMessages' => $flashMessages,
             ));
 	}
 

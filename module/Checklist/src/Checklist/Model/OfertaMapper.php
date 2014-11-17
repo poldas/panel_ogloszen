@@ -42,10 +42,9 @@ class OfertaMapper {
 
 	public function fetchAll() {
             $select = $this->sql->select();
-// 		$select->order(array(
-// 			'completed ASC',
-// 			'created ASC'
-// 		) );
+ 		$select->order(array(
+ 			'id DESC'
+ 		) );
 
             $statement = $this->sql->prepareStatementForSqlObject($select);
             $results = $statement->execute();

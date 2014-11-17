@@ -3,15 +3,17 @@ require.config({
         'jquery': 'http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min',
         'jqueryui': 'lib/jqueryui.1.11.1',
         'jqueryui.mapster': 'lib/jqueryui.mapster',
-        'async': "lib/async"
+        'async': "lib/async",
+        'bootstrap': 'lib/bootstrap'
     },
     shim: {
-    	'jqueryui': ['jquery']
+    	'jqueryui': ['jquery'],
+        'bootstrap': ['jquery']
     }
 });
 
-require(['jquery', 'modules/Mapster','jqueryui.mapster'], function($, mapster, mplugin) {
-    $('h1').text('It\'s working!');
+require(['jquery', 'modules/Mapster','jqueryui.mapster', 'bootstrap'], function($, mapster, mplugin) {
+    $('h1').text('Require It\'s working!');
     var mapCanvas = $("#mapa-oferty").get(0);
     var map = mapster.create(mapCanvas);
     map._on({

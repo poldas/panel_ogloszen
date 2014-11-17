@@ -131,7 +131,7 @@ class Parser {
             default :
                     $dostepne_parsery = join ( ', ', Slownik::pobierz_dostepne_parsery() );
                     $errMsg = "Nie ma obiektu parsera o id: " . $idParser . "<br> Użyj dostępnego parsera: " . $dostepne_parsery;
-                    throw new Exception ( $errMsg );
+                    throw new \Exception ( $errMsg );
                     break;
         }
 

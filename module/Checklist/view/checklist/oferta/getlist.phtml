@@ -2,11 +2,35 @@
  $title = 'Lista ofert';
  $this->headTitle($title);
  ?>
+<?php if(count($flashMessages)) : ?>
+<div class="alert alert-success fade in">
+<a href="#" class="close" data-dismiss="alert">&times;</a>
+<ul>
+    <?php foreach ($flashMessages as $msg) : ?>
+    <li> <strong>Success!</strong> <?php echo $msg; ?></li>
+    <?php endforeach; ?>
+</ul>
+</div>
+<?php endif; ?>
  <h1><?php echo $this->escapeHtml($title); ?></h1>
+ <p>
+    <a href="<?php echo $this->url('oferta', array('action'=>'add'));?>" class="btn btn-primary">
+        <span class="glyphicon glyphicon-list-alt"></span> Dodaj ofertę
+    </a>
+
+    <a href="<?php echo $this->url('oferta', array('action'=>'addurl'));?>" class="btn btn-primary">
+        <span class="glyphicon glyphicon-list-alt"></span> Dodaj z urla
+    </a>
+
+    <a  id='dodaj-marker' class="btn btn-primary">
+        <span class="glyphicon glyphicon-list-alt"></span> Dodaj marker
+    </a>
+</p>
  <table class="table table-striped table-bordered table-condensed table-hover" id="oferta">
  <thead>
  <tr>
-     <th>ID</th>
+     <th>Nr.</th>
+     <th>Id</th>
      <th>Cena</th>
      <th>Cena/m2</th>
      <th>Liczba Pokoi</th>
@@ -29,6 +53,7 @@
  <?php foreach ($tasks as $id => $task): ?>
  <tr>
      <td><?php echo ++$id; ?></td>
+     <td><?php echo $task->getId(); ?></td>
      <td><?php echo $task->getCena(); ?></td>
      <td><?php echo $task->getCenaM2(); ?></td>
      <td><?php echo $task->getLiczbaPokoi(); ?></td>
@@ -54,20 +79,7 @@
  <?php endforeach; ?>
  </tbody>
  </table>
-<p>
-    <a href="<?php echo $this->url('oferta', array('action'=>'add'));?>" class="btn btn-primary">
-        <span class="glyphicon glyphicon-list-alt"></span> Dodaj ofertę
-    </a>
-
-    <a href="<?php echo $this->url('oferta', array('action'=>'addurl'));?>" class="btn btn-primary">
-        <span class="glyphicon glyphicon-list-alt"></span> Dodaj z urla
-    </a>
-
-    <a  id='dodaj-marker' class="btn btn-primary">
-        <span class="glyphicon glyphicon-list-alt"></span> Dodaj marker
-    </a>
-</p>
-<div id='mapa-oferty'></div>
+<!--<div id='mapa-oferty'></div>-->
 <script type="text/javascript">
     var DATA = {};
     DATA.markers_url = "<?php echo $this->serverUrl().$this->basePath('js/positions.json'); ?>";
