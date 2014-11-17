@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ZendSkeletonApplication
 =======================
 
@@ -75,3 +76,9 @@ project and you should be ready to go! It should look something like below:
             Allow from all
         </Directory>
     </VirtualHost>
+=======
+panel_ogloszen
+==============
+
+Panel ogłoszeń nieruchomości na mapie
+>>>>>>> e3bc5b124163af0e7f1f7edbf6fb3fe7a1a4ec28
