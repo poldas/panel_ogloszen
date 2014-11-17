@@ -1,0 +1,10 @@
+{"zoom":5,"markers":[
+    {"address":"ROD LAURINDO FRANCISCO, 890, CAMBARA, PR",
+        "title":"LUA NOVA IND E COM DE PRODUTOS ALIMENTIC",
+        "html":{
+            "ajax":"http://http://web.cds-software.com.br/mapavendas/Home/CarregarInformacoesDoCliente/1472?vendedor=0&dataInicial=01.02.2011&dataFinal=25.02.2011",
+            "content":"Carregando informações..."
+        }
+    },
+    {"address":"FAZENDA SANTA TEREZINHA, SERTANOPOLIS, PR","title":"CLEONILDO ZANONI JUNIOR","html":{"ajax":"http://http://web.cds-software.com.br/mapavendas/Home/CarregarInformacoesDoCliente/10624?vendedor=0&dataInicial=01.02.2011&dataFinal=25.02.2011","content":"Carregando informações..."}},{"address":"AV MARINGA, 688, LONDRINA, PR","title":"NISHIHARA & SAKUMA LTDA","html":{"ajax":"http://http://web.cds-software.com.br/mapavendas/Home/CarregarInformacoesDoCliente/1446?vendedor=0&dataInicial=01.02.2011&dataFinal=25.02.2011","content":"Carregando informações..."}},{"address":"AV RIO BRANCO, 500, LONDRINA, PR","title":"NISHIHARA & HARA LTDA","html":{"ajax":"http://http://web.cds-software.com.br/mapavendas/Home/CarregarInformacoesDoCliente/7558?vendedor=0&dataInicial=01.02.2011&dataFinal=25.02.2011","content":"Carregando informações..."}},{"address":"RUA CHILE 416, CAMBE, PR","title":"SUPERMERCADO LUEDGIL LTDA ","html":{"ajax":"http://http://web.cds-software.com.br/mapavendas/Home/CarregarInformacoesDoCliente/121?vendedor=0&dataInicial=01.02.2011&dataFinal=25.02.2011","content":"Carregando informações..."}},{"address":"AV SANTOS DUMONT, 518 A, IBIPORA, PR","title":"SUPERMERCADO LUEDGIL LTDA","html":{"ajax":"http://http://web.cds-software.com.br/mapavendas/Home/CarregarInformacoesDoCliente/9076?vendedor=0&dataInicial=01.02.2011&dataFinal=25.02.2011","content":"Carregando informações..."}}
+]}

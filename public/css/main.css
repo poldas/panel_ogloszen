@@ -1,0 +1,65 @@
+.cluster1 {
+    background-url: url("img/cluster1.png");
+    line-height: 53px;
+    width: 53px;
+    height: 52px
+}
+
+.cluster {
+    color: "red";
+    font-family: 'Arial,Helvetica';
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#wraper {
+    position: relative;
+    margin: 20px;
+}
+
+.wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+#sidebar {
+    float: left;
+    width: 150px;
+}
+
+#map, #mapa-oferty {
+    border: 1px solid #C0C0C0;
+    float: left;
+    height: 500px;
+    width: 70%;
+}
+#mapa-oferty {
+    width: 100%;
+}
+#grid {
+    float: left;
+    height: 250px;
+    width: 75%;
+}
+#grid2 {
+    float: left;
+    width: 23%;
+    height: 250px;
+}
+
+#content {
+    overflow-y: hidden;
+    overflow-x: hidden;
+	position: relative;
+}
+
+#filtry input {
+	width: 125px;
+}
+label {
+	display: block;
+}
+#title {
+    width: 100%;
+}

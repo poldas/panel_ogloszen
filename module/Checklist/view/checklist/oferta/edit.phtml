@@ -1,0 +1,87 @@
+<?php
+ $title = 'Edytuj ofertę';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+
+ <?php
+ $form = $this->form;
+ $url = $this->url('oferta', array('action' => 'edit', 'id' => $id));
+ $form->setAttribute('action', $url);
+ $form->get('submit')->setAttribute('value', 'Zapisz');
+ $form->prepare();
+
+ echo $this->form()->openTag($form);
+	 echo "<div class='col-md-6'>";
+		 echo "<div class='row'>";
+			 echo "<div class='col-md-6'>";
+				 echo '<div class="form-group">';
+					 echo $this->formHidden($form->get('id'));
+					 echo $this->formRow($form->get('powierzchnia'));
+					 echo $this->formRow($form->get('cena'));
+					 echo $this->formRow($form->get('czynsz'));
+				 echo "</div>";
+			 echo "</div>";
+			 echo "<div class='col-md-6'>";
+				 echo '<div class="form-group">';
+					 echo $this->formRow($form->get('adres'));
+					 echo $this->formRow($form->get('miejscowosc'));
+					 echo $this->formRow($form->get('dzielnica'));
+					 echo $this->formRow($form->get('ulica'));
+				 echo "</div>";
+			 echo "</div>";
+		 echo "</div>";
+		 echo "<div class='row'>";
+			 echo "<div class='col-md-6'>";
+				 echo '<div class="form-group">';
+					 echo $this->formRow($form->get('pietro'));
+					 echo $this->formRow($form->get('liczba_pokoi'));
+					 echo $this->formRow($form->get('rok_budowy'));
+				 echo "</div>";
+			 echo "</div>";
+			 echo "<div class='col-md-6'>";
+				 echo '<div class="form-group">';
+					 echo $this->formRow($form->get('stan'));
+					 echo $this->formRow($form->get('rodzaj_budynku'));
+					 echo $this->formRow($form->get('ogrzewanie'));
+				 echo "</div>";
+			 echo "</div>";
+		 echo "</div>";
+                 echo "<div class='row'>";
+                    echo "<div class='col-md-6'>";
+                        echo $this->formInput($form->get('submit'));
+                    echo "</div>";
+                    echo "<div class='col-md-6'>";
+                        echo $this->formInput($form->get('wroc'));
+                    echo "</div>";
+            echo "</div>";
+	 echo "</div>";
+	 echo "<div class='col-md-6'>";
+		echo "<div id='mapa-oferty'></div>";
+	 echo "</div>";
+ echo "</div>";
+ ?>
+ <script type="text/javascript">
+//$.goMap.setMap({address:"DATA.markers_adress[0]"});
+ // var map = new google.maps.Map(document.getElementById("mapa-oferty"), myOptions);
+
+<!-- function addAddress(_address) {-->
+<!--     var address = _address || document.getElementById('address').value;-->
+<!---->
+<!--     geocoderService.geocode({ 'address': address }, function(results, status) {-->
+<!--       if (status === google.maps.GeocoderStatus.OK) {-->
+<!--         var latlng = results[0].geometry.location;-->
+<!--         addMarker(latlng, address);-->
+<!--         fitMarkers(results);-->
+<!--       } else if (status === google.maps.GeocoderStatus.ZERO_RESULTS) {-->
+<!--         alert("Address not found");-->
+<!--       } else {-->
+<!--         alert("Address lookup failed");-->
+<!--       }-->
+<!--     });-->
+<!--   }-->
+<!-- jQuery(document).ready(function() {-->
+<!--     addAddress("--><?php //echo $form->get('adres')->getValue();?><!--");-->
+<!-- });-->
+</script>
+ <?php echo $this->form()->closeTag($form); ?>

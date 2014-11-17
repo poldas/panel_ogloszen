@@ -1,0 +1,48 @@
+<?php
+ $title = 'Dodaj nową ofertę';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+
+ <?php
+ $form = $this->form;
+ $form->setAttribute('action', $this->url('oferta', array('action' => 'add')));
+ $form->get('submit')->setAttribute('value', 'Dodaj ofertę');
+ $form->prepare();
+ echo $this->form()->openTag($form);
+ echo "<div class='row'>";
+	 echo "<div class='col-md-3'>";
+	 echo $this->formHidden($form->get('id'));
+	 echo $this->formRow($form->get('powierzchnia'));
+	 echo $this->formRow($form->get('cena'));
+	 echo $this->formRow($form->get('czynsz'));
+	 echo "</div>";
+	 echo "<div class='col-md-3'>";
+	 echo $this->formRow($form->get('adres'));
+	 echo $this->formRow($form->get('miejscowosc'));
+	 echo $this->formRow($form->get('dzielnica'));
+	 echo $this->formRow($form->get('ulica'));
+	 echo "</div>";
+	 echo "<div class='col-md-3'>";
+	 echo $this->formRow($form->get('liczba_pokoi'));
+	 echo $this->formRow($form->get('rok_budowy'));
+	 echo $this->formRow($form->get('pietro'));
+	 echo "</div>";
+	 echo "<div class='col-md-3'>";
+	 echo $this->formRow($form->get('stan'));
+	 echo $this->formRow($form->get('rodzaj_budynku'));
+	 echo $this->formRow($form->get('ogrzewanie'));
+	 echo "</div>";
+ echo "</div>";
+ ?>
+<div class="row">
+    <div class='col-md-2'>
+        <?php echo $this->formInput($form->get('submit')); ?>
+    </div>
+    <div class='col-md-2'>
+        <?php echo $this->formInput($form->get('wroc')); ?>
+    </div>
+</div>
+ <?php
+ echo $this->form()->closeTag($form);
+ ?>

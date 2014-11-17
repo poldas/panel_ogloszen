@@ -1,0 +1,32 @@
+<?php
+ $title = 'Add new task';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+
+ <?php
+ $form = $this->form;
+ $form->setAttribute('action', $this->url('oferta', array('action' => 'add')));
+ $form->get('submit')->setAttribute('value', 'Add');
+ $form->prepare();
+
+ echo $this->form()->openTag($form);
+ echo $this->formHidden($form->get('id'));
+ echo $this->formRow($form->get('powierzchnia'));
+ echo $this->formRow($form->get('cena'));
+ echo $this->formRow($form->get('czynsz'));
+ echo $this->formRow($form->get('liczbaPokoi'));
+ echo $this->formRow($form->get('adres'));
+ echo $this->formRow($form->get('miejscowosc'));
+ echo $this->formRow($form->get('dzielnica'));
+ echo $this->formRow($form->get('rokBudowy'));
+ echo $this->formRow($form->get('stan'));
+ echo $this->formRow($form->get('pietro'));
+ echo $this->formRow($form->get('rodzajBudynku'));
+ echo $this->formRow($form->get('ogrzewanie'));
+ ?>
+ <div>
+ <?php echo $this->formInput($form->get('submit')); ?>
+ </div>
+ <?php
+ echo $this->form()->closeTag($form);
