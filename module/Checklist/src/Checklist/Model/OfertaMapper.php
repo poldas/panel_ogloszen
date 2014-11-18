@@ -19,7 +19,7 @@ CREATE TABLE `oferty_nieruchomosci` (
 `rodzaj_budynku` varchar(20) COLLATE utf8_polish_ci DEFAULT 'brak',
 `material` varchar(10) COLLATE utf8_polish_ci DEFAULT 'brak',
 `opis` varchar(4000) COLLATE utf8_polish_ci DEFAULT '',
-`url` varchar(100) COLLATE utf8_polish_ci DEFAULT '',
+`url` varchar(200) COLLATE utf8_polish_ci DEFAULT '',
 PRIMARY KEY (`id`),
 UNIQUE KEY `unik` (`adres`, `url`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;

@@ -39,7 +39,6 @@
      <th><span class="glyphicon glyphicon-zoom-in" aria-hidden="true" data-toggle="tooltip" data-original-title="W m2">Pow</span></th>
      <th>Forma Wł.</th>
      <th>Ulica</th>
-     <th>Adres</th>
      <th>Miejscowość</th>
      <th>Czynsz</th>
      <th>Rok Budowy</th>
@@ -49,7 +48,6 @@
      <th>Ogrzewanie</th>
      <th>Materiał</th>
      <th>Url</th>
-     <th>Opis</th>
      <th>Akcja</th>
  </tr>
  </thead>
@@ -62,10 +60,9 @@
      <td><?php echo $task->getCenaM2(); ?></td>
      <td><?php echo $task->getLiczbaPokoi(); ?></td>
      <td><?php echo $task->getLiczbaPieter(); ?></td>
-     <td><?php echo $task->getPowierzchnia(); ?></td>
+     <td><?php echo $task->getPowierzchnia(); ?> m<sup>2</sup></td>
      <td><?php echo $task->getFormaWlasnosci(); ?></td>
      <td><?php echo $task->getUlica(); ?></td>
-     <td><?php echo $task->getAdres(); ?></td>
      <td><?php echo $task->getMiejscowosc(); ?></td>
      <td><?php echo $task->getCzynsz(); ?></td>
      <td><?php echo $task->getRokBudowy(); ?></td>
@@ -86,12 +83,15 @@
         Brak
         <?php endif; ?>
     </td>
-     <td><a href="#" class="pokazOpis">pokaż opis</a><div class="hidden"><?php echo $task->getOpis(); ?></div> </td>
      <td>
          <a href="<?php echo $this->url('oferta',
              array('action'=>'delete', 'id' => $task->getId()));?>">Usuń</a>
          <a href="<?php echo $this->url('oferta',
              array('action'=>'edit', 'id' => $task->getId()));?>">Edytuj</a>
+         <div>
+            <a href="#" class="pokazOpis">Opis</a>
+            <p class="hidden"><?php echo $task->getOpis(); ?></p> 
+         </div>
      </td>
  </tr>
  <?php endforeach; ?>

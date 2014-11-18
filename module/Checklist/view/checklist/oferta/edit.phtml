@@ -12,61 +12,49 @@
  $form->prepare();
 
  echo $this->form()->openTag($form);
-	 echo "<div class='col-md-6'>";
-		 echo "<div class='row'>";
-			 echo "<div class='col-md-6'>";
-				 echo '<div class="form-group">';
-					 echo $this->formHidden($form->get('id'));
-					 echo $this->formRow($form->get('powierzchnia'));
-					 echo $this->formRow($form->get('cena'));
-                                         echo $this->formRow($form->get('cenam2'));
-					 echo $this->formRow($form->get('czynsz'));
-				 echo "</div>";
-			 echo "</div>";
-			 echo "<div class='col-md-6'>";
-				 echo '<div class="form-group">';
-					 echo $this->formRow($form->get('adres'));
-					 echo $this->formRow($form->get('miejscowosc'));
-					 echo $this->formRow($form->get('ulica'));
-				 echo "</div>";
-			 echo "</div>";
-		 echo "</div>";
-		 echo "<div class='row'>";
-			 echo "<div class='col-md-6'>";
-				 echo '<div class="form-group">';
-                                         echo $this->formRow($form->get('forma_wlasnosci'));
-					 echo $this->formRow($form->get('pietro'));
-                                         echo $this->formRow($form->get('liczba_pieter'));
-					 echo $this->formRow($form->get('liczba_pokoi'));
-					 echo $this->formRow($form->get('rok_budowy'));
-				 echo "</div>";
-			 echo "</div>";
-			 echo "<div class='col-md-6'>";
-				 echo '<div class="form-group">';
-					 echo $this->formRow($form->get('stan'));
-					 echo $this->formRow($form->get('rodzaj_budynku'));
-					 echo $this->formRow($form->get('ogrzewanie'));
-                                         echo $this->formRow($form->get('material'));
-                                         echo $this->formRow($form->get('url'));
-				 echo "</div>";
-			 echo "</div>";
-		 echo "</div>";
-                 echo "<div class='row'>";
-                    echo "<div class='col-md-6'>";
-                        echo $this->formInput($form->get('submit'));
-                    echo "</div>";
-                    echo "<div class='col-md-6'>";
-                        echo $this->formInput($form->get('wroc'));
-                    echo "</div>";
-            echo "</div>";
+ 
+ 
+  echo "<div class='row'>";
+	 echo "<div class='col-md-3'>";
+	 echo $this->formHidden($form->get('id'));
+	 echo $this->formRow($form->get('powierzchnia'));
+	 echo $this->formRow($form->get('cena'));
+         echo $this->formRow($form->get('cenam2'));
+	 echo $this->formRow($form->get('czynsz'));
 	 echo "</div>";
-          echo "<div class='col-md-6'>";
-                echo '<div class="form-group">';
-                        echo $this->formRow($form->get('opis'));
-                echo "</div>";
-          echo "</div>";
+	 echo "<div class='col-md-3'>";
+	 echo $this->formRow($form->get('miejscowosc'));
+         echo $this->formRow($form->get('ulica'));
+	 echo $this->formRow($form->get('forma_wlasnosci'));
+         echo $this->formRow($form->get('url'));
+	 echo "</div>";
+	 echo "<div class='col-md-3'>";
+	 echo $this->formRow($form->get('liczba_pokoi'));
+         echo $this->formRow($form->get('liczba_pieter'));
+	 echo $this->formRow($form->get('rok_budowy'));
+	 echo $this->formRow($form->get('pietro'));
+	 echo "</div>";
+	 echo "<div class='col-md-3'>";
+         echo $this->formRow($form->get('rodzaj_budynku'));
+	 echo $this->formRow($form->get('stan'));
+         echo $this->formRow($form->get('material'));
+         echo $this->formRow($form->get('ogrzewanie'));
+	 echo "</div>";
  echo "</div>";
  ?>
+ <div class="row">
+    <div class='col-md-2'>
+        <?php echo $this->formInput($form->get('submit')); ?>
+    </div>
+    <div class='col-md-2'>
+        <?php echo $this->formInput($form->get('wroc')); ?>
+    </div>
+</div>
+ <div class='row'>
+    <div class='col-md-12'>
+        <?php echo $this->formRow($form->get('opis')); ?>
+    </div>
+</div>
  <script type="text/javascript">
 //$.goMap.setMap({address:"DATA.markers_adress[0]"});
  // var map = new google.maps.Map(document.getElementById("mapa-oferty"), myOptions);
