@@ -63,10 +63,3 @@ label {
 #title {
     width: 100%;
 }
-
-
-/*BOOTSTRAP*/
-
-.modal-dialog {
-    width: 800px;
-}

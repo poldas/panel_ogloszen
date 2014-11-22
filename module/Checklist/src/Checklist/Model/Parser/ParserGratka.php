@@ -18,20 +18,35 @@ class ParserGratka extends ParserAbstract {
      */
     protected function setDataObject() {
         $this->data['id'] = 0;
-        $this->pobierzMieszkanie();
-        $this->pobierzBudynek();
+        $this->pobierzSekcjaMieszkanie();
+        $this->pobierzSekcjaBudynek();
         $this->pobierzOpis();
-        $this->pobierzAdres();
+        $this->pobierzSekcjaAdres();
         $this->pobierzCena();
         $this->pobierzCenaMetr2Czynsz();
+        array_walk_recursive($this->data, function (&$item, $key) {
+            $item = trim($item);
+        });
         
         $this->parsujLiczby();
         $this->parsujAdres();
     }
 
     protected function parsujAdres() {
-        $this->data['adres'] = $this->data['miejscowosc'] 
-            .', '.$this->data['dzielnica'].', ul. '.$this->data['ulica'] ;
+        $miejscowosc = $this->data['miejscowosc'];
+        $dielnica = $this->data['dzielnica'];
+        $ulica = $this->data['ulica'];
+        $adres = array();
+        if(!empty($miejscowosc)) {
+            $adres[] = $miejscowosc;
+        }
+        if(!empty($dielnica)) {
+            $adres[] = $dielnica;
+        }
+        if(!empty($ulica)) {
+            $adres[] = 'ul. '.$ulica;
+        }
+        $this->data['adres'] = join($adres, ', ');
     }
     
     protected function pobierzCena() {
@@ -58,7 +73,7 @@ class ParserGratka extends ParserAbstract {
         }
     }
     
-    protected function pobierzAdres() {
+    protected function pobierzSekcjaAdres() {
         $nodes = $this->getDomObject()->execute(
             "#karta-naglowek div div h2.hide-for-small"
         );
@@ -70,7 +85,9 @@ class ParserGratka extends ParserAbstract {
         $dzielnica = array_pop($tmp);
 
         $this->data['miejscowosc'] = str_replace('Gmina', '', $gmina);
-        $this->data['ulica'] = $ulica;
+        $this->data['miejscowosc'] = str_replace('mieszkanie na sprzedaż', '', $this->data['miejscowosc']);
+        $this->data['ulica'] = str_replace('mieszkanie na sprzedaż', '', $ulica);
+        $this->data['ulica'] = str_replace(trim($this->data['miejscowosc']), '', $this->data['ulica']);
         $this->data['dzielnica'] = str_replace('mieszkanie na sprzedaż', '', $dzielnica);
     }
 
@@ -82,7 +99,7 @@ class ParserGratka extends ParserAbstract {
         $this->data['opis'] = $wynik;
     }
 
-    protected function pobierzMieszkanie() {
+    protected function pobierzSekcjaMieszkanie() {
         $nodes = $this->getDomObject()->execute(
             "div#dane-podstawowe div.mieszkanie ul li"
         );
@@ -92,8 +109,6 @@ class ParserGratka extends ParserAbstract {
             $tmp = mb_split('\n', trim($node->nodeValue));
             try {
                 $label = ParserSlownik::getLabelName($tmp[0]);
-                \Zend\Debug\Debug::dump($tmp[0], 'tmp');
-                \Zend\Debug\Debug::dump($label, 'label');
                 if (empty($label)) {
                     continue;
                 }
@@ -111,7 +126,7 @@ class ParserGratka extends ParserAbstract {
         return true;
     }
 
-    protected function pobierzBudynek() {
+    protected function pobierzSekcjaBudynek() {
         $nodes = $this->getDomObject()->execute(
             "div#dane-podstawowe div.budynek ul li"
         );

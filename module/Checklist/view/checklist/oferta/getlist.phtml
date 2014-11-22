@@ -27,27 +27,21 @@
     </a>
 </p>
 <?php if (count($tasks)): ?>
- <table class="table table-striped table-bordered table-condensed table-hover" id="oferta">
+ <table class="table table-striped table-bordered" id="oferta">
  <thead>
  <tr>
      <th>Nr.</th>
      <th>Id</th>
-     <th>Cena</th>
-     <th>Cena/m2</th>
-     <th>Liczba Pokoi</th>
-     <th>Liczba Pięter</th>
+     <th>Cena Cena/m<sup>2</sup></th>
      <th><span class="glyphicon glyphicon-zoom-in" aria-hidden="true" data-toggle="tooltip" data-original-title="W m2">Pow</span></th>
-     <th>Forma Wł.</th>
+     <th>Pokoje <br>Piętro</th>
+     <th>Liczba Pięter</th>
+     <th>Forma Własności</th>
      <th>Ulica</th>
      <th>Miejscowość</th>
      <th>Czynsz</th>
-     <th>Rok Budowy</th>
-     <th>Stan</th>
-     <th>Piętro</th>
-     <th>Rodzaj Budynku</th>
-     <th>Ogrzewanie</th>
-     <th>Materiał</th>
-     <th>Url</th>
+     <th class="szeroka">Stan<br>Rodzaj budynku<br>Rok budowy</th>
+     <th>Materiał<br>Ogrzewanie</th>
      <th>Akcja</th>
  </tr>
  </thead>
@@ -56,42 +50,48 @@
  <tr>
      <td><?php echo ++$id; ?></td>
      <td><?php echo $task->getId(); ?></td>
-     <td><?php echo $task->getCena(); ?></td>
-     <td><?php echo $task->getCenaM2(); ?></td>
-     <td><?php echo $task->getLiczbaPokoi(); ?></td>
-     <td><?php echo $task->getLiczbaPieter(); ?></td>
+     <td>
+         <p><?php echo $task->getCena(); ?> zł</p>
+        <p><?php echo $task->getCenaM2(); ?> zł/m<sup>2</sup></p>
+     </td>
      <td><?php echo $task->getPowierzchnia(); ?> m<sup>2</sup></td>
+     <td>
+         <?php echo $task->getLiczbaPokoi(); ?> pok. /
+         <?php echo $task->getPietro(); ?>p
+     
+     </td>
+     <td><?php echo $task->getLiczbaPieter(); ?></td>
      <td><?php echo $task->getFormaWlasnosci(); ?></td>
      <td><?php echo $task->getUlica(); ?></td>
      <td><?php echo $task->getMiejscowosc(); ?></td>
      <td><?php echo $task->getCzynsz(); ?></td>
-     <td><?php echo $task->getRokBudowy(); ?></td>
-     <td><?php echo $task->getStan(); ?></td>
-     <td><?php echo $task->getPietro(); ?></td>
-     <td><?php echo $task->getRodzajBudynku(); ?></td>
-     <td><?php echo $task->getOgrzewanie(); ?></td>
-     <td><?php echo $task->getMaterial(); ?></td>
-     <td><?php if ($task->getUrl()): ?>
+     <td>
+         <p><?php echo $task->getStan(); ?></p>
+         <p><?php echo $task->getRodzajBudynku(); ?></p>
+         <p><?php echo $task->getRokBudowy(); ?></p>
+     </td>
+     <td>
+         <p><?php echo $task->getMaterial(); ?></p>
+         <?php echo $task->getOgrzewanie(); ?>
+     </td>
+     <td>
+         <a href="<?php echo $this->url('oferta',
+             array('action'=>'delete', 'id' => $task->getId()));?>"><span class="glyphicon glyphicon-minus" aria-hidden="true"</span>Usuń</a>
+         <a href="<?php echo $this->url('oferta',
+             array('action'=>'edit', 'id' => $task->getId()));?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"</span>Edytuj</a>
+         <div>
+            <a href="#" class="pokazOpis"><span class="glyphicon glyphicon-file" aria-hidden="true"</span>Opis</a>
+            <p class="hidden"><?php echo $task->getOpis(); ?></p> 
+         </div>
+         <?php if ($task->getUrl()): ?>
          <a href="<?php echo $task->getUrl(); ?>" target="_blank">
             <span class="glyphicon glyphicon-zoom-in" aria-hidden="true" 
                  data-toggle="tooltip" 
-                 data-original-title="<?php echo $task->getUrl(); ?>">
-                przejdź do strony
-            </span>
+                 data-original-title="<?php echo $task->getUrl(); ?>">www</span>
         <a/>
         <?php else: ?>
         Brak
         <?php endif; ?>
-    </td>
-     <td>
-         <a href="<?php echo $this->url('oferta',
-             array('action'=>'delete', 'id' => $task->getId()));?>">Usuń</a>
-         <a href="<?php echo $this->url('oferta',
-             array('action'=>'edit', 'id' => $task->getId()));?>">Edytuj</a>
-         <div>
-            <a href="#" class="pokazOpis">Opis</a>
-            <p class="hidden"><?php echo $task->getOpis(); ?></p> 
-         </div>
      </td>
  </tr>
  <?php endforeach; ?>

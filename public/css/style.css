@@ -35,3 +35,17 @@ div.container a.brand {
     margin-left: 0;
     padding: 8px 20px 12px 40px;
 }
+
+#oferta td p {
+    margin: 0;
+}
+
+th.szeroka {
+    width: 135px;
+}
+
+/*BOOTSTRAP*/
+
+.modal-dialog {
+    width: 800px;
+}

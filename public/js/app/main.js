@@ -1,26 +1,32 @@
 require.config({
     'paths': {
+        baseUrl: './',
         'jquery': 'http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min',
         'jqueryui': 'lib/jqueryui.1.11.1',
         'jqueryui.mapster': 'lib/jqueryui.mapster',
         'async': "lib/async",
-        'bootstrap': 'lib/bootstrap'
+        'bootstrap': 'lib/bootstrap',
+        datatables: 'lib/jquery.dataTables',
+        datatablesntegration: 'lib/dataTables.bootstrap'
     },
     shim: {
     	'jqueryui': ['jquery'],
-        'bootstrap': ['jquery']
+        'bootstrap': ['jquery'],
+        'datatables': ['jquery'],
+        datatablesntegration: ['datatables'],
     }
 });
 
-require(['jquery', 'modules/Mapster','jqueryui.mapster', 'bootstrap'], function($, mapster, mplugin) {
+require(['jquery', 'modules/Mapster','jqueryui.mapster', 'bootstrap', 'datatables', 'datatablesntegration'], function($, mapster, mplugin) {
     $('h1').text('Require It\'s working!');
     $mapa = $("#mapa-oferty");
     var mapCanvas = $mapa? $mapa.get(0):null;
-    
     $('[data-toggle="tooltip"]').tooltip({
-        placement : 'top'
+        placement : 'right'
     });
     $(function(){
+        $('#oferta').dataTable();
+    
         $(".pokazOpis").click(function(e) {
             e.preventDefault();
             var siblings = $(this).siblings(), content = $(siblings[0]);

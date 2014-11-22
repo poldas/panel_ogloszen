@@ -1,0 +1,8 @@
+2014-11-17T21:32:29+01:00 CRIT (2): /var/www/projekt_panel/module/Checklist/src/Checklist/Model/Parser.php:134 Nie ma obiektu parsera o id: 0<br> Użyj dostępnego parsera: 1, 2 (0) [Exception]
+
+2014-11-17T21:57:01+01:00 CRIT (2): /var/www/projekt_panel/module/Checklist/src/Checklist/Model/Parser.php:134 Nie ma obiektu parsera o id: 0<br> Użyj dostępnego parsera: 1, 2 (0) [Exception]
+
+2014-11-17T21:57:38+01:00 CRIT (2): /var/www/projekt_panel/module/Checklist/src/Checklist/Model/Parser.php:134 Nie ma obiektu parsera o id: 0<br> Użyj dostępnego parsera: 1, 2 (0) [Exception]
+
+2014-11-17T21:57:50+01:00 CRIT (2): /var/www/projekt_panel/module/Checklist/src/Checklist/Model/Parser.php:134 Nie ma obiektu parsera o id: 0<br> Użyj dostępnego parsera: 1, 2 (0) [Exception]
+
