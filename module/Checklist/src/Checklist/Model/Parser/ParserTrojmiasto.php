@@ -32,8 +32,20 @@ class ParserTrojmiasto extends ParserAbstract {
     }
     
     protected function parsujAdres() {
-        $this->data['adres'] = $this->data['miejscowosc'] 
-            .', '.$this->data['dzielnica'].', ul. '.$this->data['ulica'] ;
+        $miejscowosc = $this->data['miejscowosc'];
+        $dielnica = isset($this->data['dzielnica'])? $this->data['dzielnica']: "";
+        $ulica = $this->data['ulica'];
+        $adres = array();
+        if(!empty($miejscowosc)) {
+            $adres[] = $miejscowosc;
+        }
+        if(!empty($dielnica)) {
+            $adres[] = $dielnica;
+        }
+        if(!empty($ulica)) {
+            $adres[] = 'ul. '.$ulica;
+        }
+        $this->data['adres'] = join($adres, ', ');
     }
     
     

@@ -31,7 +31,6 @@
  <thead>
  <tr>
      <th>Nr.</th>
-     <th>Id</th>
      <th>Cena Cena/m<sup>2</sup></th>
      <th><span class="glyphicon glyphicon-zoom-in" aria-hidden="true" data-toggle="tooltip" data-original-title="W m2">Pow</span></th>
      <th>Pokoje <br>Piętro</th>
@@ -49,7 +48,6 @@
  <?php foreach ($tasks as $id => $task): ?>
  <tr>
      <td><?php echo ++$id; ?></td>
-     <td><?php echo $task->getId(); ?></td>
      <td>
          <p><?php echo $task->getCena(); ?> zł</p>
         <p><?php echo $task->getCenaM2(); ?> zł/m<sup>2</sup></p>
