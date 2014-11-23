@@ -20,6 +20,7 @@ require.config({
 });
 
 require(['app'], function(App) {
+    window.App = {};
     App.initialize();
 });
 //

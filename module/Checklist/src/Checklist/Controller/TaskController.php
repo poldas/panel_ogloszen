@@ -4,6 +4,7 @@ namespace Checklist\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use Zend\View\Model\JsonModel;
 use Checklist\Form\TaskForm;
 use Checklist\Model\TaskEntity;
 
@@ -64,10 +65,18 @@ class TaskController extends AbstractActionController {
 		);
 	}
 	public function getListAction() {
-		$mapper = $this->getTaskMapper ();
+		$mapper = $this->getTaskMapper();
 		return new ViewModel ( array (
 				'tasks' => $mapper->fetchAll ()
 		) );
+	}
+        public function getAjaxListAction() {
+            $mapper = $this->getTaskMapper();
+            if ($this->getRequest()->isXmlHttpRequest()) {
+                return new JsonModel($mapper->fetchAll()->toArray());
+            } else {
+                return new ViewModel(array('tasks' => $mapper->fetchAll()));
+            }
 	}
 	public function deleteAction() {
 		$id = $this->params ( 'id' );

@@ -15,22 +15,8 @@
                     ->prependStylesheet($this->basePath() . '/css/style.css')
                     ->prependStylesheet($this->basePath() . '/css/bootstrap-theme.min.css')
                     ->prependStylesheet($this->basePath() . '/css/main.css')
-                    ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css')
-        				//->prependStylesheet($this->basePath() . '/js/w2ui/dist/w2ui.css') ?>
-<!--<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.1/css/jquery.dataTables.css">
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>-->
-<!-- Scripts -->
-        <?php /*echo $this->headScript()
-            ->prependFile($this->basePath() . '/js/main.js')
-            ->prependFile($this->basePath() . '/js/infobox.js')
-            ->prependFile($this->basePath() . '/js/bootstrap.min.js')
-            ->prependFile($this->basePath() . '/js/respond.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
-            ->prependFile($this->basePath() . '/js/html5shiv.js',   'text/javascript', array('conditional' => 'lt IE 9',))
-            ->prependFile($this->basePath() . '/js/jquery.min.js')
-        ;*/?>
-<script type="text/javascript" data-main="<?php echo $this->basePath(); ?>/js/app/main" src="<?php echo $this->basePath(); ?>/js/app/lib/require.js"></script>
-<!-- DataTables -->
-<!--<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.1/js/jquery.dataTables.js"></script>-->
+                    ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css'); ?>
+<script type="text/javascript" data-main="<?php echo $this->basePath(); ?>/js/appTodo/main" src="<?php echo $this->basePath(); ?>/js/appTodo/lib/require.js"></script>
 
     </head>
     <body>
@@ -70,8 +56,5 @@
 
         </script>-->
         <?php echo $this->inlineScript() ?>
-        <script type="text/javascript">
-            require(['main-lista']);
-        </script>
     </body>
 </html>

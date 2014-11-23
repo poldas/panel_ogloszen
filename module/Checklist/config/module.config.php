@@ -13,14 +13,14 @@ return array(
             'task' => array(
                 'type'    => 'Segment',
                 'options' => array(
-                    'route'    => '/task[/:action[/:id]]',
+                    'route'    => '/task[/:action[/:id]][/]',
                     'defaults' => array(
                         '__NAMESPACE__' => 'Checklist\Controller',
                         'controller'    => 'Task',
                         'action'        => 'index',
                     ),
                     'constraints' => array(
-                        'action' => 'add|edit|delete|getlist$',
+                        'action' => 'add|edit|delete|getajaxlist|getlist',
                         'id'     => '[0-9]+',
                     ),
                 ),
@@ -73,6 +73,9 @@ return array(
             'checklist/oferta/index'  => __DIR__ . '/../view/checklist/oferta/index.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
+        ),
+        'strategies' => array(
+            'ViewJsonStrategy',
         ),
         'display_exceptions' => true,
         'display_not_found_reason' => true,
@@ -152,6 +155,11 @@ return array(
 					'label' => 'Panel oferta',
 					'route' => 'oferta',
 					'action' => 'getlist',
+				),
+                            array(
+					'label' => 'Backbone example',
+					'route' => 'task',
+					'action' => 'getajaxlist',
 				),
 			),
 		),
