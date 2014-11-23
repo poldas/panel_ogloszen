@@ -1,18 +1,20 @@
 require.config({
     'paths': {
         baseUrl: './',
-        'jquery': 'http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min',
-        'jqueryui': 'lib/jqueryui.1.11.1',
-        'jqueryui.mapster': 'lib/jqueryui.mapster',
-        'async': "lib/async",
-        'bootstrap': 'lib/bootstrap',
+        jquery: 'http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min',
+        jqueryui: 'lib/jqueryui.1.11.1',
+        "jqueryui.mapster": 'lib/jqueryui.mapster',
+        async: "lib/async",
+        bootstrap: 'lib/bootstrap',
+        backbone: 'lib/backbone',
+        underscore: 'lib/underscore',
         datatables: 'lib/jquery.dataTables',
         datatablesntegration: 'lib/dataTables.bootstrap'
     },
     shim: {
-    	'jqueryui': ['jquery'],
-        'bootstrap': ['jquery'],
-        'datatables': ['jquery'],
+    	jqueryui: ['jquery'],
+        bootstrap: ['jquery', 'underscore'],
+        datatables: ['jquery'],
         datatablesntegration: ['datatables'],
     }
 });
