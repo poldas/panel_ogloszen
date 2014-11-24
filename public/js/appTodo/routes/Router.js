@@ -2,8 +2,8 @@ define(['modules/TaskItem', 'collections/TaskCollection','views/TaskView', 'view
 function(TaskModel, TaskCollection, TaskView, TaskListView) {
     var Router = Backbone.Router.extend({
         routes: {
-          '': 'index',
-          'home': 'home'
+          '': 'list',
+          list: 'list'
         },
 
         initialize: function() {
@@ -12,9 +12,9 @@ function(TaskModel, TaskCollection, TaskView, TaskListView) {
         index: function() {
             console.log('index');
         },
-        home: function() {
+        list: function() {
             console.log('home');
-            var tasklist = new TaskCollection();
+            var tasklist = new TaskCollection({model: TaskModel});
             var tasklistview = new TaskListView({model: tasklist});
             tasklistview.render();
         }

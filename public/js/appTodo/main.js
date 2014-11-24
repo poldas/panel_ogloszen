@@ -9,6 +9,8 @@ require.config({
         backbone: 'lib/backbone',
         underscore: 'lib/underscore',
         datatables: 'lib/jquery.dataTables',
+        handlebars: 'lib/handlebars',
+        text: 'lib/text',
         datatablesntegration: 'lib/dataTables.bootstrap'
     },
     shim: {
