@@ -1,11 +1,17 @@
-define(['modules/TaskItem', 'collections/TaskCollection','views/TaskView', 'views/TaskListView'], 
-function(TaskModel, TaskCollection, TaskView, TaskListView) {
+define(['views/TestView', 'modules/TestModul','modules/TaskItem', 'collections/TaskCollection','views/TaskView', 'views/TaskListView'], 
+function(TestView, TestModul, TaskModel, TaskCollection, TaskView, TaskListView) {
     var Router = Backbone.Router.extend({
         routes: {
           '': 'list',
-          list: 'list'
+          list: 'list',
+          test: 'test'
         },
-
+        test: function() {
+            console.log('test');
+            var testView  = new TestView({el: $('#test-form'), model: new TestModul()});
+            testView.render();
+            
+        },
         initialize: function() {
 //            this.home();
         },

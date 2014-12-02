@@ -7,6 +7,31 @@
  <a href="<?php echo $this->url('task', array(
          'action'=>'add'));?>" class="btn btn-primary"><span class="glyphicon glyphicon-list-alt"></span> Add new</a>
 </p>
+
+<form id="test-form">
+  Cena: <input type="text" name="ogloszenie[cena]"/>
+  Telefon: <input type="text" name="ogloszenie[kontak_telefon]"/>
+  <select name="ogloszenie[marka]">
+    <option value="" label="Wybierz">Wybierz</option>
+    <option value="Abarth" label="Abarth">Abarth</option>
+    <option value="AC Cars" label="AC Cars">AC Cars</option>
+    <option value="Acura" label="Acura">Acura</option>
+    <option value="Aeon" label="Aeon">Aeon</option>
+    <option value="Aixam" label="Aixam">Aixam</option>
+    <option value="Alfa Romeo" label="Alfa Romeo">Alfa Romeo</option>
+    <option value="Alpina" label="Alpina">Alpina</option>
+    <option value="Aro" label="Aro">Aro</option>
+    <option value="Arrinera" label="Arrinera">Arrinera</option>
+    <option value="Artega" label="Artega">Artega</option>
+    <option value="Asia Motors" label="Asia Motors">Asia Motors</option>
+    <option value="Inna" label="Inna">Inna</option>
+</select>
+  <select name="ogloszenie[model]">
+    <option value="" label="Wybierz">Wybierz</option>
+</select>
+  
+  <input name="submit" type="submit" value="Submit"></input>
+</form>
 <div id="task-list">
     <table class="table table-striped table-bordered table-condensed">
         <thead>
